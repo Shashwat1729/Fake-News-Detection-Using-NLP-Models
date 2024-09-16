@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fake News Detection</h1>
+        <form action="/predict" method="POST">
+            <label for="news_text">Paste the news article text below:</label>
+            <textarea name="news_text" id="news_text" rows="5" required>{{ news_text }}</textarea>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
